@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Risco Aceitável</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Risco Aceitável</h1>
+    <form id="risk-form">
+        <!-- Perguntas 1 a 10 -->
+        <div class="question">
+            <p><strong>1. Você recebeu uma oferta de emprego em outro estado, sem garantias de estabilidade. O que faz?</strong></p>
+            <label><input type="radio" name="q1" value="1.0"> Aceita imediatamente.</label><br>
+            <label><input type="radio" name="q1" value="0.5"> Pensa e analisa os riscos.</label><br>
+            <label><input type="radio" name="q1" value="0.0"> Recusa a oferta.</label>
+        </div>
+        <div class="question">
+            <p><strong>2. Durante uma viagem, você encontra um caminho mais rápido, mas desconhecido. Você:</strong></p>
+            <label><input type="radio" name="q2" value="1.0"> Escolhe o caminho desconhecido.</label><br>
+            <label><input type="radio" name="q2" value="0.5"> Verifica antes de decidir.</label><br>
+            <label><input type="radio" name="q2" value="0.0"> Mantém o caminho conhecido.</label>
+        </div>
+        <div class="question">
+            <p><strong>3. Você tem a chance de abrir um negócio, mas sem garantias de sucesso. O que faz?</strong></p>
+            <label><input type="radio" name="q3" value="1.0"> Arrisca e começa o negócio.</label><br>
+            <label><input type="radio" name="q3" value="0.5"> Pensa e planeja antes.</label><br>
+            <label><input type="radio" name="q3" value="0.0"> Não assume o risco.</label>
+        </div>
+        <div class="question">
+            <p><strong>4. Você investiu em um ativo que está desvalorizando. O que faz?</strong></p>
+            <label><input type="radio" name="q4" value="1.0"> Compra mais do ativo.</label><br>
+            <label><input type="radio" name="q4" value="0.5"> Espera para tomar uma decisão.</label><br>
+            <label><input type="radio" name="q4" value="0.0"> Vende imediatamente.</label>
+        </div>
+        <div class="question">
+            <p><strong>5. Você tem a opção de participar de um investimento de alto risco e alto retorno. Você:</strong></p>
+            <label><input type="radio" name="q5" value="1.0"> Investe totalmente.</label><br>
+            <label><input type="radio" name="q5" value="0.5"> Investe parcialmente.</label><br>
+            <label><input type="radio" name="q5" value="0.0"> Não investe.</label>
+        </div>
+        <div class="question">
+            <p><strong>6. Você tem uma ideia inovadora, mas arriscada, para um projeto. O que faz?</strong></p>
+            <label><input type="radio" name="q6" value="1.0"> Executa imediatamente.</label><br>
+            <label><input type="radio" name="q6" value="0.5"> Analisa e avalia antes de agir.</label><br>
+            <label><input type="radio" name="q6" value="0.0"> Prefere manter a abordagem segura.</label>
+        </div>
+        <div class="question">
+            <p><strong>7. Em um jogo, você pode apostar tudo e dobrar seu prêmio ou perder tudo. Você:</strong></p>
+            <label><input type="radio" name="q7" value="1.0"> Aposta tudo.</label><br>
+            <label><input type="radio" name="q7" value="0.5"> Aposta uma parte.</label><br>
+            <label><input type="radio" name="q7" value="0.0"> Não aposta.</label>
+        </div>
+        <div class="question">
+            <p><strong>8. Você encontra um celular caro perdido na rua. O que faz?</strong></p>
+            <label><input type="radio" name="q8" value="1.0"> Fica com ele.</label><br>
+            <label><input type="radio" name="q8" value="0.5"> Tenta achar o dono.</label><br>
+            <label><input type="radio" name="q8" value="0.0"> Leva para as autoridades.</label>
+        </div>
+        <div class="question">
+            <p><strong>9. Você tem a oportunidade de fazer algo que nunca fez antes. Você:</strong></p>
+            <label><input type="radio" name="q9" value="1.0"> Aceita sem pensar duas vezes.</label><br>
+            <label><input type="radio" name="q9" value="0.5"> Avalia os riscos antes de decidir.</label><br>
+            <label><input type="radio" name="q9" value="0.0"> Recusa para evitar surpresas.</label>
+        </div>
+        <div class="question">
+            <p><strong>10. Você pode economizar dinheiro, mas precisa abrir mão de benefícios. O que faz?</strong></p>
+            <label><input type="radio" name="q10" value="1.0"> Aceita o sacrifício pela economia.</label><br>
+            <label><input type="radio" name="q10" value="0.5"> Tenta equilibrar entre economia e benefícios.</label><br>
+            <label><input type="radio" name="q10" value="0.0"> Prefere manter os benefícios.</label>
+        </div>
+
+        <!-- Perguntas 11 a 30 -->
+        <div class="question">
+            <p><strong>11. Você aceitaria trocar sua casa por uma menor, mas em um bairro mais seguro?</strong></p>
+            <label><input type="radio" name="q11" value="1.0"> Sim, aceito imediatamente.</label><br>
+            <label><input type="radio" name="q11" value="0.5"> Talvez, mas com análise detalhada.</label><br>
+            <label><input type="radio" name="q11" value="0.0"> Não trocaria.</label>
+        </div>
+        <div class="question">
+            <p><strong>12. Em um evento, você pode conhecer pessoas importantes, mas sente insegurança social. O que faz?</strong></p>
+            <label><input type="radio" name="q12" value="1.0"> Participa e enfrenta o desconforto.</label><br>
+            <label><input type="radio" name="q12" value="0.5"> Participa apenas observando.</label><br>
+            <label><input type="radio" name="q12" value="0.0"> Evita participar.</label>
+        </div>
+        <div class="question">
+            <p><strong>13. Você recebeu uma oferta para um emprego no exterior, mas sem garantias contratuais. Você:</strong></p>
+            <label><input type="radio" name="q13" value="1.0"> Aceita sem hesitar.</label><br>
+            <label><input type="radio" name="q13" value="0.5"> Analisa antes de decidir.</label><br>
+            <label><input type="radio" name="q13" value="0.0"> Recusa a oferta.</label>
+        </div>
+        <div class="question">
+            <p><strong>14. Você foi desafiado a experimentar uma comida exótica que pode causar desconforto. O que faz?</strong></p>
+            <label><input type="radio" name="q14" value="1.0"> Experimenta imediatamente.</label><br>
+            <label><input type="radio" name="q14" value="0.5"> Experimenta apenas com garantia de segurança.</label><br>
+            <label><input type="radio" name="q14" value="0.0"> Recusa.</label>
+        </div>
+        <div class="question">
+            <p><strong>15. Você tem a oportunidade de fazer uma viagem longa de carona. Você:</strong></p>
+            <label><input type="radio" name="q15" value="1.0"> Aceita a carona.</label><br>
+            <label><input type="radio" name="q15" value="0.5"> Aceita com restrições.</label><br>
+            <label><input type="radio" name="q15" value="0.0"> Não aceita.</label>
+        </div>
+        <!-- Continue com o mesmo formato até a questão 30 -->
+        <div class="question">
+            <p><strong>16. Você foi convidado para um evento onde pode ganhar contatos importantes, mas há custos altos de entrada. O que faz?</strong></p>
+            <label><input type="radio" name="q16" value="1.0"> Participa sem hesitar.</label><br>
+            <label><input type="radio" name="q16" value="0.5"> Avalia os custos antes de decidir.</label><br>
+            <label><input type="radio" name="q16" value="0.0"> Decide não participar.</label>
+        </div>
+        <div class="question">
+            <p><strong>17. Você encontrou uma bolsa com dinheiro na rua. O que faz?</strong></p>
+            <label><input type="radio" name="q17" value="1.0"> Fica com o dinheiro.</label><br>
+            <label><input type="radio" name="q17" value="0.5"> Tenta localizar o dono.</label><br>
+            <label><input type="radio" name="q17" value="0.0"> Entrega às autoridades.</label>
+        </div>
+        <div class="question">
+            <p><strong>18. Você foi desafiado a saltar de um penhasco em um lago seguro. O que faz?</strong></p>
+            <label><input type="radio" name="q18" value="1.0"> Salta sem pensar duas vezes.</label><br>
+            <label><input type="radio" name="q18" value="0.5"> Observa antes de decidir.</label><br>
+            <label><input type="radio" name="q18" value="0.0"> Recusa o desafio.</label>
+        </div>
+        <div class="question">
+            <p><strong>19. Você foi convidado a liderar um projeto importante, mas arriscado. O que faz?</strong></p>
+            <label><input type="radio" name="q19" value="1.0"> Aceita imediatamente.</label><br>
+            <label><input type="radio" name="q19" value="0.5"> Aceita com algumas condições.</label><br>
+            <label><input type="radio" name="q19" value="0.0"> Recusa para evitar o risco.</label>
+        </div>
+        <div class="question">
+            <p><strong>20. Você tem a chance de investir em uma criptomoeda promissora, mas volátil. O que faz?</strong></p>
+            <label><input type="radio" name="q20" value="1.0"> Investe imediatamente.</label><br>
+            <label><input type="radio" name="q20" value="0.5"> Investe uma pequena parte.</label><br>
+            <label><input type="radio" name="q20" value="0.0"> Não investe.</label>
+        </div>
+        <div class="question">
+            <p><strong>21. Você foi convidado para um reality show que pode melhorar sua reputação, mas expõe sua privacidade. O que faz?</strong></p>
+            <label><input type="radio" name="q21" value="1.0"> Participa sem hesitar.</label><br>
+            <label><input type="radio" name="q21" value="0.5"> Pensa bastante antes de decidir.</label><br>
+            <label><input type="radio" name="q21" value="0.0"> Recusa o convite.</label>
+        </div>
+        <div class="question">
+            <p><strong>22. Você está em uma competição e pode trapacear para vencer sem ser pego. O que faz?</strong></p>
+            <label><input type="radio" name="q22" value="1.0"> Trapaceia para vencer.</label><br>
+            <label><input type="radio" name="q22" value="0.5"> Avalia se vale a pena arriscar.</label><br>
+            <label><input type="radio" name="q22" value="0.0"> Compete de forma justa.</label>
+        </div>
+        <div class="question">
+            <p><strong>23. Você recebeu um convite para um encontro com alguém que acabou de conhecer online. O que faz?</strong></p>
+            <label><input type="radio" name="q23" value="1.0"> Aceita sem hesitar.</label><br>
+            <label><input type="radio" name="q23" value="0.5"> Aceita com precauções.</label><br>
+            <label><input type="radio" name="q23" value="0.0"> Recusa para evitar riscos.</label>
+        </div>
+        <div class="question">
+            <p><strong>24. Você tem uma oportunidade de mudar de carreira para algo incerto, mas potencialmente lucrativo. O que faz?</strong></p>
+            <label><input type="radio" name="q24" value="1.0"> Aceita imediatamente.</label><br>
+            <label><input type="radio" name="q24" value="0.5"> Analisa os prós e contras.</label><br>
+            <label><input type="radio" name="q24" value="0.0"> Prefere manter estabilidade.</label>
+        </div>
+        <div class="question">
+            <p><strong>25. Você pode economizar dinheiro ao comprar produtos com defeitos leves. O que faz?</strong></p>
+            <label><input type="radio" name="q25" value="1.0"> Compra sem hesitar.</label><br>
+            <label><input type="radio" name="q25" value="0.5"> Avalia a qualidade antes de decidir.</label><br>
+            <label><input type="radio" name="q25" value="0.0"> Evita comprar produtos defeituosos.</label>
+        </div>
+        <div class="question">
+            <p><strong>26. Você recebeu um bilhete de loteria premiado, mas precisa viajar para resgatá-lo. O que faz?</strong></p>
+            <label><input type="radio" name="q26" value="1.0"> Viaja imediatamente.</label><br>
+            <label><input type="radio" name="q26" value="0.5"> Faz planos antes de viajar.</label><br>
+            <label><input type="radio" name="q26" value="0.0"> Desiste por causa do esforço.</label>
+        </div>
+        <div class="question">
+            <p><strong>27. Você está em um grupo de pessoas desconhecidas e pode liderar uma atividade. O que faz?</strong></p>
+            <label><input type="radio" name="q27" value="1.0"> Assume a liderança imediatamente.</label><br>
+            <label><input type="radio" name="q27" value="0.5"> Toma a liderança com cautela.</label><br>
+            <label><input type="radio" name="q27" value="0.0"> Prefere não liderar.</label>
+        </div>
+        <div class="question">
+            <p><strong>28. Você tem a chance de ganhar um prêmio, mas precisa investir tempo e dinheiro para competir. O que faz?</strong></p>
+            <label><input type="radio" name="q28" value="1.0"> Compete sem hesitar.</label><br>
+            <label><input type="radio" name="q28" value="0.5"> Compete se o prêmio valer a pena.</label><br>
+            <label><input type="radio" name="q28" value="0.0"> Não compete para evitar custos.</label>
+        </div>
+        <div class="question">
+            <p><strong>29. Você foi convidado a participar de uma palestra importante, mas que exige falar em público. O que faz?</strong></p>
+            <label><input type="radio" name="q29" value="1.0"> Aceita sem hesitar.</label><br>
+            <label><input type="radio" name="q29" value="0.5"> Aceita com preparação prévia.</label><br>
+            <label><input type="radio" name="q29" value="0.0"> Recusa por medo de falar em público.</label>
+        </div>
+        <div class="question">
+            <p><strong>30. Você pode comprar uma passagem para uma viagem surpresa, mas sem saber o destino. O que faz?</strong></p>
+            <label><input type="radio" name="q30" value="1.0"> Compra sem hesitar.</label><br>
+            <label><input type="radio" name="q30" value="0.5"> Pensa antes de decidir.</label><br>
+            <label><input type="radio" name="q30" value="0.0"> Não compra para evitar surpresas.</label>
+        </div>
+
+        <button type="button" onclick="calculateRisk()">Calcular Risco</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateRisk() {
+            const form = document.getElementById('risk-form');
+            const formData = new FormData(form);
+            let totalScore = 0;
+            let answeredQuestions = 0;
+
+            // Iterate over each question
+            for (let [key, value] of formData.entries()) {
+                totalScore += parseFloat(value);
+                answeredQuestions++;
+            }
+
+            // Check if all questions were answered
+            const totalQuestions = 30;
+            if (answeredQuestions < totalQuestions) {
+                document.getElementById('result').innerText = "Por favor, responda todas as perguntas.";
+                return;
+            }
+
+            // Calculate IRA (0-1 scale)
+            const IRA = totalScore / totalQuestions;
+
+            // Display result
+            document.getElementById('result').innerText = `Seu Índice de Risco Aceitável (IRA) é: ${IRA.toFixed(2)}.`;
+        }
+    </script>
+</body>
+</html>
